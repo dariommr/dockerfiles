@@ -9,6 +9,8 @@ mynetworks = 127.0.0.1/32 172.17.0.0/24 10.10.10.0/24
 unknown_local_recipient_reject_code = 550
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
+
+
 debug_peer_level = 2
 debugger_command =
          PATH=/bin:/usr/bin:/usr/local/bin:/usr/X11R6/bin
