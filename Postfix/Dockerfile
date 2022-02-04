@@ -16,3 +16,4 @@ EXPOSE 25
 COPY entry.sh /
 RUN chmod +x /entry.sh
 ENTRYPOINT ["/entry.sh"]
+CMD ["postfix"]
