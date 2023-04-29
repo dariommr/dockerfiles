@@ -5,15 +5,12 @@ RUN apt-get update && \
     apt-get install -q -y postfix
 
 #Configure Postfix
-COPY main.cf /etc/postfix/
-COPY thawte_Primary_Root_CA.pem /etc/ssl/certs/
-COPY sasl_passwd /etc/postfix/
-RUN touch /var/log/mail.log && \
-    postmap /etc/postfix/sasl_passwd
+COPY root-ca.pem /etc/ssl/certs/
+COPY config_postfix.sh /
 
 #RUN Postfix
 EXPOSE 25
 COPY entry.sh /
-RUN chmod +x /entry.sh
+RUN chmod +x /entry.sh && chmod +x /config_postfix.sh
 ENTRYPOINT ["/entry.sh"]
 CMD ["postfix"]
